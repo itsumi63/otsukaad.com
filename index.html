@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>大塚ad｜宮崎のデジタルマーケティング伴走</title>
-  <meta name="description" content="宮崎を拠点に、個人・中小企業向けのデジタルマーケティング支援。広告運用、GA4分析、施策設計、AI活用までやさしく伴走します。" />
+  <title>大塚ad｜宮崎のデジタルマーケティング伴走（広告運用・分析・戦略・AI活用）</title>
+  <meta name="description" content="宮崎を拠点に、個人〜中小企業向けのデジタルマーケティング支援。Google/Yahoo広告運用、GA4分析、施策設計、AI活用まで実務ベースで伴走します。初回相談無料。お問い合わせ：i@otsukaad.com" />
 
   <!-- Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,30 +14,39 @@
 
   <style>
     :root {
+      /* 背景（otsukaad.jp寄せ） */
       --bg-base: #f5f7fb;
       --bg-section: #ffffff;
       --bg-hero: linear-gradient(135deg, #0f2a44 0%, #123a5f 100%);
+
+      /* 文字色（otsukaad.jp寄せ） */
       --text-main: #1a1a1a;
       --text-sub: #4a5568;
       --text-muted: #718096;
+
+      /* カラー */
       --primary-color: #123a5f;
       --accent-color: #1e5aa8;
-      --border-light: rgba(0,0,0,.06);
+
+      /* 罫線 */
+      --border-light: rgba(0, 0, 0, 0.06);
+      --shadow: 0 8px 24px rgba(15, 42, 68, 0.08);
       --white: #ffffff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
       line-height: 1.75;
       color: var(--text-main);
       background: var(--bg-base);
     }
 
-    a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+    a:hover { opacity: 0.9; }
 
     .container {
       max-width: 1000px;
@@ -48,122 +57,81 @@
     section { padding: 80px 0; background: var(--bg-section); }
     section.about { background: var(--bg-base); }
 
-    /* ===== Header ===== */
+    /* Header */
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-light);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
 
     nav {
-      height: 70px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      height: 70px;
     }
 
     .logo {
       font-weight: 800;
+      font-size: 1.15rem;
       color: var(--primary-color);
-      letter-spacing: .02em;
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 20px;
-      font-size: 14px;
-      color: var(--text-sub);
+      align-items: center;
     }
 
-    /* ===== Hero ===== */
+    .nav-links li { margin-left: 20px; }
+    .nav-links a { color: var(--text-sub); font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent-color); }
+
+    /* Hero */
     .hero {
-      position: relative;
       background: var(--bg-hero);
-      color: #fff;
+      color: var(--white);
       padding: 160px 0 90px;
       text-align: center;
-      overflow: hidden;
-    }
-
-    /* 🔷 動くネイビーの箱 */
-    .bg-animated {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-animated .box {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 10px;
-      animation: float 22s ease-in-out infinite;
-    }
-
-    .b1 { top: 18%; left: 6%; animation-duration: 26s; }
-    .b2 { top: 62%; left: 12%; width: 36px; height: 36px; animation-duration: 20s; }
-    .b3 { top: 22%; right: 14%; width: 54px; height: 54px; animation-duration: 30s; }
-    .b4 { top: 58%; right: 18%; width: 28px; height: 28px; animation-duration: 18s; }
-    .b5 { top: 38%; left: 46%; width: 44px; height: 44px; animation-duration: 24s; }
-
-    @keyframes float {
-      0%   { transform: translate(0,0); opacity: .35; }
-      50%  { transform: translate(12px,-22px); opacity: .7; }
-      100% { transform: translate(0,0); opacity: .35; }
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 2;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       line-height: 1.25;
       margin-bottom: 18px;
+      letter-spacing: 0.01em;
     }
 
     .hero p {
+      font-size: 1.05rem;
+      opacity: 0.95;
       max-width: 860px;
       margin: 0 auto 26px;
-      color: rgba(255,255,255,.92);
-      font-size: 1.05rem;
+      color: rgba(255,255,255,0.92);
     }
 
-    .btn {
-      display: inline-block;
-      background: #fff;
-      color: var(--primary-color);
-      padding: 14px 36px;
-      border-radius: 999px;
-      font-weight: 700;
+    .badge-row{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 16px;
     }
 
-    .badge-row {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      font-size: .9rem;
-    }
-
-    .badge {
+    .badge{
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.25);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.92);
     }
 
-    /* ===== Section title ===== */
     .section-title {
       text-align: center;
       margin-bottom: 50px;
@@ -172,153 +140,393 @@
     .section-title h2 {
       font-size: 2rem;
       color: var(--primary-color);
-      border-bottom: 3px solid var(--accent-color);
       display: inline-block;
+      border-bottom: 3px solid var(--accent-color);
       padding-bottom: 10px;
+      letter-spacing: 0.01em;
     }
 
-    .section-lead {
-      margin-top: 14px;
+    .section-lead{
+      text-align:center;
+      margin-top:14px;
       color: var(--text-muted);
       max-width: 860px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left:auto;
+      margin-right:auto;
+      font-size: 1rem;
     }
 
-    /* ===== Services（PCは2×2） ===== */
+    /* ✅ できること：PCで2列固定（2個×2段） */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* ← PCは2列固定 */
       gap: 22px;
     }
 
+    /* 画面が狭い場合は1列に */
     @media (max-width: 820px) {
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .service-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
+      background: var(--white);
       padding: 28px;
+      border-radius: 12px;
+      transition: transform 0.2s;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
     }
 
+    .service-card:hover { transform: translateY(-4px); }
     .service-card h3 {
-      color: var(--primary-color);
       margin-bottom: 10px;
+      color: var(--primary-color);
+      font-size: 1.12rem;
+    }
+    .service-card p { color: var(--text-sub); }
+
+    /* Strength / Profile */
+    .about-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
     }
 
-    .service-card p {
-      color: var(--text-sub);
+    .about-text { flex: 1; min-width: 300px; }
+    .about-text h3 { margin-bottom: 10px; color: var(--primary-color); }
+    .about-text p { margin-top: 10px; color: var(--text-sub); }
+
+    .kpi-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .kpi{
+      background: var(--white);
+      border-radius: 12px;
+      padding: 18px;
+      border:1px solid var(--border-light);
+      box-shadow: var(--shadow);
+    }
+    .kpi strong{ color: var(--primary-color); }
+    .kpi p{ margin-top: 8px; color: var(--text-sub); font-size: 0.98rem; }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .step{
+      background: var(--white);
+      border-radius: 12px;
+      padding: 22px;
+      border:1px solid var(--border-light);
+      box-shadow: var(--shadow);
+    }
+    .step .n{
+      display:inline-block;
+      background: rgba(30,90,168,0.10);
+      color: var(--primary-color);
+      border: 1px solid rgba(30,90,168,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .step h3{ color: var(--primary-color); margin-bottom: 8px; font-size: 1.08rem; }
+    .step p{ color: var(--text-sub); }
+
+    details{
+      background: var(--white);
+      border-radius: 12px;
+      padding: 18px 20px;
+      border:1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+    }
+    summary{ cursor:pointer; font-weight:700; color: var(--primary-color); }
+    details p{ margin-top: 10px; color: var(--text-sub); }
+
+    /* Button */
+    .cta-container { text-align: center; margin-top: 34px; }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: 0.2s;
+      box-shadow: 0 10px 22px rgba(18,58,95,0.18);
     }
 
-    /* ===== Footer ===== */
+    .btn:hover {
+      background: var(--accent-color);
+      box-shadow: 0 12px 26px rgba(30,90,168,0.22);
+    }
+
+    /* Footer */
     footer {
       background: #0f2a44;
-      color: rgba(255,255,255,.9);
-      text-align: center;
+      color: rgba(255,255,255,0.92);
       padding: 40px 0;
-      font-size: .95rem;
+      text-align: center;
+      font-size: 0.95rem;
     }
+    footer a { color: rgba(255,255,255,0.92); text-decoration: underline; }
 
+    /* Responsive */
     @media (max-width: 768px) {
       h1 { font-size: 1.6rem; }
+      .nav-links { display: none; }
       section { padding: 60px 0; }
       .hero { padding: 140px 0 80px; }
-      .nav-links { display: none; }
+      .section-title h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">大塚ad</div>
-      <ul class="nav-links">
-        <li><a href="#services">できること</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <!-- 動く箱 -->
-    <div class="bg-animated" aria-hidden="true">
-      <span class="box b1"></span>
-      <span class="box b2"></span>
-      <span class="box b3"></span>
-      <span class="box b4"></span>
-      <span class="box b5"></span>
-    </div>
-
+  <header>
     <div class="container">
-      <h1>“数字で判断できる”<br>実務に強いマーケ伴走</h1>
-      <p>
-        宮崎を拠点に、個人・中小企業向けのデジタルマーケティング支援。<br>
-        広告・分析・改善を、やさしく一緒に進めます。
-      </p>
-      <a href="#contact" class="btn">無料で相談する</a>
-
-      <div class="badge-row">
-        <div class="badge">宮崎</div>
-        <div class="badge">個人・中小企業</div>
-        <div class="badge">伴走型</div>
-      </div>
+      <nav>
+        <div class="logo">大塚ad</div>
+        <ul class="nav-links">
+          <li><a href="#services">できること</a></li>
+          <li><a href="#strength">強み</a></li>
+          <li><a href="#flow">進め方</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>できること</h2>
-        <p class="section-lead">
-          主軸はデジタルマーケティング支援。必要なところだけ、無理なく。
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>
+          “数字で判断できる”<br />
+          実務に強いマーケ伴走
+        </h1>
+        <p>
+          大塚adは、<strong>広告運用</strong>（Google / Yahoo）から、<strong>GA4の分析</strong>・<strong>施策設計</strong>・<strong>AI活用</strong>まで、<br />
+          机上の理論ではなく「現場の手が動く」形で支援します。<br />
+          宮崎を拠点に、個人〜中小企業の方へ。まずは現状とゴールを整理するところから、一緒に進めましょう。
         </p>
-      </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>広告運用支援</h3>
-          <p>Google / Yahoo広告の設計・改善・予算配分まで対応。</p>
-        </div>
-        <div class="service-card">
-          <h3>数値分析（GA4）</h3>
-          <p>現状を見える化し、次の一手を決めます。</p>
-        </div>
-        <div class="service-card">
-          <h3>施策・戦略設計</h3>
-          <p>やること・やらないことを整理し、優先度を明確に。</p>
-        </div>
-        <div class="service-card">
-          <h3>AI活用支援</h3>
-          <p>作業の型化・効率化で、続く運用に。</p>
+        <a href="#contact" class="btn">無料で相談する</a>
+
+        <div class="badge-row" aria-label="対応情報">
+          <div class="badge">対象：個人〜中小企業</div>
+          <div class="badge">拠点：宮崎（オンライン中心）</div>
+          <div class="badge">連絡：i@otsukaad.com</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="about">
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>できること</h2>
+          <p class="section-lead">
+            主軸は「デジタルマーケティング支援」。必要に応じて広告・分析・戦略・AIまで一気通貫で対応します。
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>広告運用支援</h3>
+            <p>
+              Google広告 / Yahoo広告の設計・改善・予算配分。<br />
+              数字を見て、打ち手を早く回します。
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>数値分析（GA4）</h3>
+            <p>
+              GA4・Looker Studioで、現状の課題を見える化。<br />
+              伸びる要因／落ちる要因を分解します。
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>戦略・施策設計</h3>
+            <p>
+              目標/KPIの再整理、施策の優先度付け、ロードマップ作成。<br />
+              “やらないこと”も決めます。
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>AI活用支援</h3>
+            <p>
+              レポート自動化、クリエイティブ案出し、作業の型化。<br />
+              小さく試して成果が出る形に落とします。
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <a href="#contact" class="btn">まずは状況だけ相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRENGTH -->
+    <section id="strength" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>大塚adの強み</h2>
+          <p class="section-lead">
+            「実務で使える」ことに絞り、成果に直結する改善を積み上げます。
+          </p>
+        </div>
+
+        <div class="about-flex">
+          <div class="about-text">
+            <h3>実務ベースで、やさしく伴走します</h3>
+            <p>・机上の正しさより、<strong>現場で回る運用</strong>を優先</p>
+            <p>・指標の意味を揃え、<strong>判断できる見える化</strong>へ</p>
+            <p>・施策は「誰が・いつ・何を」まで落として、ちゃんと前に進める</p>
+
+            <div class="kpi-grid" aria-label="支援スタイル">
+              <div class="kpi">
+                <strong>運用</strong>
+                <p>Google / Yahoo広告を「回す」だけでなく、改善が続く状態に整えます。</p>
+              </div>
+              <div class="kpi">
+                <strong>分析</strong>
+                <p>GA4で「何が効いたか」を分解し、次の打ち手が決まる形にします。</p>
+              </div>
+              <div class="kpi">
+                <strong>設計</strong>
+                <p>目標・KPI・優先度を整理して、“いま一番効く順”に進めます。</p>
+              </div>
+              <div class="kpi">
+                <strong>AI</strong>
+                <p>レポートや作業を型化し、少人数でも継続できる運用にします。</p>
+              </div>
+            </div>
+
+            <p style="margin-top:18px;">
+              ゴールは、広告を“回す”ではなく、<strong>利益と再現性が出る状態</strong>に整えることです。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOW -->
+    <section id="flow">
+      <div class="container">
+        <div class="section-title">
+          <h2>進め方</h2>
+          <p class="section-lead">
+            最初は軽く相談 → 状況整理 → 具体的な打ち手と優先度を提案、の流れです。
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="n">1｜無料相談</div>
+            <h3>まずは現状を一緒に整理</h3>
+            <p>現状・目的・困りごとを伺い、論点を整理します（オンライン）。</p>
+          </div>
+          <div class="step">
+            <div class="n">2｜現状把握と仮説</div>
+            <h3>必要な範囲だけ確認</h3>
+            <p>広告/GA4/LPなど必要範囲を確認し、改善仮説を立てます。</p>
+          </div>
+          <div class="step">
+            <div class="n">3｜実行・検証</div>
+            <h3>優先度の高いものから</h3>
+            <p>実行→指標で検証→次の打ち手へ。小さく回して成果を積み上げます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>よくある質問</h2>
+          <p class="section-lead">初回相談は無料。まずは気軽に状況だけ共有いただいてOKです。</p>
+        </div>
+
+        <details>
+          <summary>どこまで対応してもらえますか？</summary>
+          <p>
+            広告運用・計測/分析（GA4）・施策設計・AI活用まで一気通貫で対応できます。<br />
+            ただし、最初から全部やるより「最短で効く範囲」から始めるのがおすすめです。
+          </p>
+        </details>
+
+        <details>
+          <summary>小規模でも相談できますか？</summary>
+          <p>
+            もちろん可能です。小規模の方ほど「打ち手の優先度」と「数字の見える化」が効きます。
+          </p>
+        </details>
+
+        <details>
+          <summary>料金はどう決まりますか？</summary>
+          <p>
+            相談内容と関与範囲（運用代行/伴走/スポット）で変わります。<br />
+            まずは無料相談で状況を伺い、無理のない形をご提案します。
+          </p>
+        </details>
+
+        <details>
+          <summary>メールだけで依頼できますか？</summary>
+          <p>
+            はい。まずはメールで状況をざっくり送ってください。必要に応じてオンラインで短くすり合わせします。
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>お問い合わせ</h2>
+          <p class="section-lead">「現状」「目的」「困っていること」を一言で大丈夫なので送ってください。</p>
+        </div>
+
+        <div class="cta-container">
+          <p style="color:var(--text-sub);">ご相談・お見積もりは無料です。</p><br />
+          <a href="mailto:i@otsukaad.com?subject=%E3%80%90%E7%9B%B8%E8%AB%87%E3%80%91%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%9E%E3%83%BC%E3%82%B1%E6%94%AF%E6%8F%B4&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0D%0A%E7%8F%BE%E7%8A%B6%EF%BC%9A%0D%0A%E7%9B%AE%E7%9A%84%EF%BC%9A%0D%0A%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0D%0A%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E7%AF%84%E5%9B%B2%EF%BC%88%E5%BA%83%E5%91%8A%2F%E5%88%86%E6%9E%90%2F%E6%88%A6%E7%95%A5%2FAI%EF%BC%89%EF%BC%9A" class="btn">
+            メールで相談する（i@otsukaad.com）
+          </a>
+          <p style="font-size:0.95rem; opacity:0.85; margin-top:12px; color:var(--text-muted);">※原則24時間以内に返信します。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-      <div class="section-title">
-        <h2>お問い合わせ</h2>
-        <p class="section-lead">まずは状況だけでもお気軽に。</p>
-      </div>
-      <div style="text-align:center;">
-        <a href="mailto:i@otsukaad.com" class="btn">i@otsukaad.com</a>
-      </div>
+      <p><strong>大塚ad</strong></p>
+      <p style="opacity:.9;">拠点：宮崎県（オンライン対応可）</p>
+      <p style="opacity:.9;">対象：個人事業／中小企業（小さく始めたい方もOK）</p>
+      <p style="opacity:.9;">連絡先：<a href="mailto:i@otsukaad.com">i@otsukaad.com</a></p>
+      <p style="margin-top:10px; opacity:.8;">&copy; <span id="y"></span> 大塚ad All Rights Reserved.</p>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer>
-  <p>© <span id="y"></span> 大塚ad</p>
-</footer>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
