@@ -98,15 +98,57 @@
   overflow: hidden;
   color: #ffffff;
 
-  /* 👇 おしゃれネイビー背景 */
+  /* 近未来ネイビー背景 */
   background:
-    radial-gradient(900px 500px at 15% 20%, rgba(46, 120, 200, 0.25), transparent 60%),
-    radial-gradient(800px 480px at 85% 30%, rgba(36, 187, 183, 0.18), transparent 55%),
-    linear-gradient(135deg, #0c2340 0%, #0f2a44 45%, #123a5f 100%);
+    /* 光の帯（未来感の正体） */
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.02) 12%,
+      rgba(255,255,255,0.00) 22%
+    ),
+    /* 左上の光源 */
+    radial-gradient(
+      900px 520px at 12% 18%,
+      rgba(90, 160, 255, 0.28),
+      transparent 60%
+    ),
+    /* 右側の奥行き */
+    radial-gradient(
+      800px 500px at 88% 30%,
+      rgba(36, 187, 183, 0.22),
+      transparent 55%
+    ),
+    /* ベースネイビー */
+    linear-gradient(
+      135deg,
+      #081a30 0%,
+      #0c2340 45%,
+      #123a5f 100%
+    );
 
   padding: 160px 0 90px;
   text-align: center;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -553,5 +595,6 @@
   </script>
 </body>
 </html>
+
 
 
