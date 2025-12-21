@@ -94,11 +94,20 @@
 
     /* Hero */
     .hero {
-      background: var(--bg-hero);
-      color: var(--white);
-      padding: 160px 0 90px;
-      text-align: center;
-    }
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+
+  /* 👇 おしゃれネイビー背景 */
+  background:
+    radial-gradient(900px 500px at 15% 20%, rgba(46, 120, 200, 0.25), transparent 60%),
+    radial-gradient(800px 480px at 85% 30%, rgba(36, 187, 183, 0.18), transparent 55%),
+    linear-gradient(135deg, #0c2340 0%, #0f2a44 45%, #123a5f 100%);
+
+  padding: 160px 0 90px;
+  text-align: center;
+}
+
 
     h1 {
       font-size: 2.25rem;
@@ -530,3 +539,4 @@
   </script>
 </body>
 </html>
+
