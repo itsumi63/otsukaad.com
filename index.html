@@ -360,6 +360,18 @@
       .hero { padding: 140px 0 80px; }
       .section-title h2 { font-size: 1.6rem; }
     }
+    /* スマホだけ表示 */
+.sp-only {
+  display: none;
+}
+
+/* 768px以下（スマホ）のときだけ改行を有効化 */
+@media screen and (max-width: 768px) {
+  .sp-only {
+    display: inline;
+  }
+}
+
   </style>
 </head>
 
@@ -601,6 +613,7 @@
   </script>
 </body>
 </html>
+
 
 
 
