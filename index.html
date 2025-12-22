@@ -499,6 +499,32 @@
       .hero h1::after{ animation: none !important; }
       .hero .light-flow{ animation: none !important; }
     }
+    .hero { position: relative; }
+
+/* KV画像レイヤー（文字の後ろに表示） */
+.hero-visual{
+  position: absolute;
+  inset: 0;
+  background: url("kv_pc.png") no-repeat center / cover;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95; /* 強すぎたら 0.85 くらいに */
+}
+
+/* 既存の演出は前面（今ある背景より上） */
+.hero::before,
+.hero::after,
+.hero .light-flow{ z-index: 1; }
+
+/* テキストは最前面 */
+.hero .container{ position: relative; z-index: 2; }
+@media (max-width: 768px){
+  .hero-visual{
+    background-image: url("kv_sp.png");
+    background-position: center bottom;
+  }
+}
+
   </style>
 </head>
 
@@ -521,6 +547,7 @@
   <main>
     <!-- HERO -->
     <section class="hero">
+　　　<div class="hero-visual"></div>
       <div class="light-flow"></div>
       <div class="container">
         <h1>
@@ -761,6 +788,7 @@
   </script>
 </body>
 </html>
+
 
 
 
