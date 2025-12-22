@@ -324,6 +324,20 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
     }
+.service-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
     .service-card:hover{ transform: translateY(-4px); }
     .service-card h3{
@@ -539,39 +553,52 @@
           </p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>広告運用支援</h3>
-            <p>
-              Google広告 / Yahoo広告の設計・改善・予算配分。<br />
-              数字を見て、打ち手を早く回します。
-            </p>
-          </div>
+       <div class="services-grid">
+  <div class="service-card">
+    <div class="service-image">
+      <img src="images/service-ads.jpg" alt="広告運用のデータ分析画面">
+    </div>
+    <h3>広告運用支援</h3>
+    <p>
+      Google広告 / Yahoo広告の設計・改善・予算配分。<br />
+      数字を見て、打ち手を早く回します。
+    </p>
+  </div>
 
-          <div class="service-card">
-            <h3>数値分析（GA4）</h3>
-            <p>
-              GA4・Looker Studioで、現状の課題を見える化。<br />
-              伸びる要因／落ちる要因を分解します。
-            </p>
-          </div>
+  <div class="service-card">
+    <div class="service-image">
+      <img src="images/service-ga4.jpg" alt="GA4の分析ダッシュボード">
+    </div>
+    <h3>数値分析（GA4）</h3>
+    <p>
+      GA4・Looker Studioで、現状の課題を見える化。<br />
+      伸びる要因／落ちる要因を分解します。
+    </p>
+  </div>
 
-          <div class="service-card">
-            <h3>戦略・施策設計</h3>
-            <p>
-              目標/KPIの再整理、施策の優先度付け、ロードマップ作成。<br />
-              “やらないこと”も決めます。
-            </p>
-          </div>
+  <div class="service-card">
+    <div class="service-image">
+      <img src="images/service-strategy.jpg" alt="戦略設計とKPI分析">
+    </div>
+    <h3>戦略・施策設計</h3>
+    <p>
+      目標/KPIの再整理、施策の優先度付け、ロードマップ作成。<br />
+      “やらないこと”も決めます。
+    </p>
+  </div>
 
-          <div class="service-card">
-            <h3>AI活用支援</h3>
-            <p>
-              レポート自動化、クリエイティブ案出し、作業の型化。<br />
-              小さく試して成果が出る形に落とします。
-            </p>
-          </div>
-        </div>
+  <div class="service-card">
+    <div class="service-image">
+      <img src="images/service-ai.jpg" alt="AI活用と業務自動化">
+    </div>
+    <h3>AI活用支援</h3>
+    <p>
+      レポート自動化、クリエイティブ案出し、作業の型化。<br />
+      小さく試して成果が出る形に落とします。
+    </p>
+  </div>
+</div>
+
 
         <div class="cta-container">
           <a href="#contact" class="btn">まずは状況だけ相談する</a>
@@ -734,4 +761,5 @@
   </script>
 </body>
 </html>
+
 
