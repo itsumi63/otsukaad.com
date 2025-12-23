@@ -330,6 +330,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
     }
+
     .service-image {
       width: 100%;
       height: 180px;
@@ -440,8 +441,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       /* ✅ 反射用 */
       position: relative;
       overflow: hidden;
-      border: 0;
-      cursor: pointer;
     }
 
     /* ✅ CTA：ホログラム反射（ホバー） */
@@ -464,96 +463,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .btn:hover{
       background: var(--accent-color);
       box-shadow: 0 12px 26px rgba(30,90,168,0.22);
-    }
-
-    /* ✅ お問い合わせフォーム（LPの雰囲気に馴染ませる） */
-    .contact-wrap{
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .contact-form{
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow);
-      border-radius: 14px;
-      padding: 24px;
-      text-align: left;
-      margin-top: 18px;
-    }
-
-    .contact-form .row{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 820px){
-      .contact-form .row{ grid-template-columns: 1fr; }
-    }
-
-    .contact-form label{
-      display: block;
-      font-size: 0.92rem;
-      color: var(--text-sub);
-      margin: 0 0 6px;
-      font-weight: 600;
-    }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea{
-      width: 100%;
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      outline: none;
-      background: #fff;
-      color: var(--text-main);
-      transition: border-color .2s, box-shadow .2s;
-    }
-
-    .contact-form textarea{
-      resize: vertical;
-      min-height: 140px;
-      line-height: 1.6;
-    }
-
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus{
-      border-color: rgba(30,90,168,0.55);
-      box-shadow: 0 0 0 4px rgba(30,90,168,0.12);
-    }
-
-    .contact-form textarea::placeholder{
-      color: #9aa6b2;
-      line-height: 1.6;
-    }
-
-    .contact-actions{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-
-    .contact-note{
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .mail-fallback{
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      margin-top: 12px;
-      text-align: center;
-    }
-    .mail-fallback a{
-      text-decoration: underline;
-      color: var(--accent-color);
     }
 
     /* Footer */
@@ -597,7 +506,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero h1::after{ animation: none !important; }
       .hero .light-flow{ animation: none !important; }
     }
-    .hero { position: relative; }
 
     /* KV画像レイヤー（文字の後ろに表示） */
     .hero-visual{
@@ -606,7 +514,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: url("kv_pc.png") no-repeat center / cover;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.95; /* 強すぎたら 0.85 くらいに */
+      opacity: 0.95;
     }
 
     /* 既存の演出は前面（今ある背景より上） */
@@ -623,15 +531,109 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         background-position: center bottom;
       }
     }
+
+    /* ===== Contact Form UI ===== */
+    .contact-wrap{
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 26px;
+    }
+
+    .form-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 720px){
+      .form-grid{ grid-template-columns: 1fr; }
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+
+    .field label{
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 0.95rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 10px;
+      padding: 12px 12px;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .field textarea{ min-height: 140px; resize: vertical; }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus{
+      border-color: rgba(30,90,168,0.45);
+      box-shadow: 0 0 0 4px rgba(30,90,168,0.12);
+    }
+
+    .required{
+      display:inline-block;
+      margin-left:8px;
+      font-size: 0.78rem;
+      color: #d12c2c;
+      background: rgba(209,44,44,0.08);
+      border: 1px solid rgba(209,44,44,0.18);
+      padding: 2px 8px;
+      border-radius: 999px;
+      vertical-align: middle;
+      font-weight: 700;
+    }
+
+    .form-actions{
+      margin-top: 14px;
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .note{
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align:center;
+      margin-top: 12px;
+    }
+
+    .btn[disabled]{
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .error-text{
+      display:none;
+      text-align:center;
+      margin-top: 10px;
+      color: #b42318;
+      font-weight: 700;
+    }
   </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6MXBLZJ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6MXBLZJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="container">
       <nav>
@@ -858,68 +860,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="contact-wrap">
-          <p style="color:var(--text-sub); text-align:center;">ご相談・お見積もりは無料です。</p>
-
-          <!-- ✅ フォーム（Formspree） -->
-          <!-- action の XXXXX を Formspree のフォームIDに差し替えてください -->
-          <form
-            action="https://formspree.io/f/xqezggnj"
-            method="POST"
-            class="contact-form"
-          >
-            <!-- Formspree用（任意） -->
-            <input type="hidden" name="_subject" value="【無料相談】otsukaad.com から新規問い合わせ">
-            <input type="hidden" name="_language" value="ja">
-
-            <div class="row">
-              <div>
-                <label for="name">お名前<span style="color:#c53030;"> *</span></label>
-                <input id="name" type="text" name="氏名" placeholder="お名前" required>
+          <!-- ✅ Formspree: fetch送信 + 成功したら thanks.html へ -->
+          <form id="contactForm" action="https://formspree.io/f/xqezggnj" method="POST">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">氏名 <span class="required">必須</span></label>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="例：大塚 惟津美">
               </div>
 
-              <div>
+              <div class="field">
                 <label for="company">会社名（任意）</label>
-                <input id="company" type="text" name="会社名" placeholder="会社名（任意）">
+                <input id="company" name="company" type="text" autocomplete="organization" placeholder="例：〇〇株式会社">
               </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
+                <label for="email">メールアドレス <span class="required">必須</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="例：example@domain.com">
+              </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
+                <label for="category">相談内容 <span class="required">必須</span></label>
+                <select id="category" name="category" required>
+                  <option value="" selected disabled>選択してください</option>
+                  <option value="広告運用">広告運用</option>
+                  <option value="GA4分析">GA4分析</option>
+                  <option value="戦略・施策設計">戦略・施策設計</option>
+                  <option value="AI活用">AI活用</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
+                <label for="message">相談内容詳細 <span class="required">必須</span></label>
+                <textarea id="message" name="message" required placeholder="例：現状の広告費、目標、困っている点など。わかる範囲でOKです。"></textarea>
+              </div>
+
+              <!-- ✅ スパム対策（隠しフィールド） -->
+              <input type="text" name="_gotcha" style="display:none">
             </div>
 
-            <div style="margin-top:14px;">
-              <label for="email">メールアドレス<span style="color:#c53030;"> *</span></label>
-              <input id="email" type="email" name="メールアドレス" placeholder="メールアドレス" required>
+            <div class="form-actions">
+              <button id="submitBtn" class="btn" type="submit">送信する（無料相談）</button>
             </div>
 
-            <div style="margin-top:14px;">
-              <label for="category">ご相談内容<span style="color:#c53030;"> *</span></label>
-              <select id="category" name="相談内容" required>
-                <option value="">選択してください</option>
-                <option value="広告運用">広告運用</option>
-                <option value="GA4・分析">GA4・分析</option>
-                <option value="マーケティング戦略">マーケティング戦略</option>
-                <option value="AI活用">AI活用</option>
-                <option value="その他">その他</option>
-              </select>
-            </div>
+            <div id="errorText" class="error-text">送信に失敗しました。時間をおいて再度お試しください。</div>
 
-            <div style="margin-top:14px;">
-              <label for="detail">ご相談内容詳細（任意）</label>
-              <textarea
-                id="detail"
-                name="相談内容詳細"
-                placeholder="※まだ整理できていなくても大丈夫です
-例）とにかく数字をみえる化したい"
-              ></textarea>
-            </div>
-
-            <div class="contact-actions">
-              <button type="submit" class="btn">無料相談を申し込む</button>
-              <span class="contact-note">※</span>
-            </div>
+            <p class="note">※ 原則1営業日以内にご連絡します。</p>
           </form>
+        </div>
 
-          <!-- ✅ フォールバック：メール -->
-          <p class="mail-fallback">
-            フォームが送信できない場合は、<a href="mailto:i@otsukaad.com">i@otsukaad.com</a> へご連絡ください。
-          </p>
+        <div class="cta-container" style="margin-top:18px;">
+          <a href="mailto:i@otsukaad.com?subject=%E3%80%90%E7%9B%B8%E8%AB%87%E3%80%91%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%9E%E3%83%BC%E3%82%B1%E6%94%AF%E6%8F%B4&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0D%0A%E7%8F%BE%E7%AA%B6%EF%BC%9A%0D%0A%E7%9B%AE%E7%9A%84%EF%BC%9A%0D%0A%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0D%0A%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E7%AF%84%E5%9B%B2%EF%BC%88%E5%BA%83%E5%91%8A%2F%E5%88%86%E6%9E%90%2F%E6%88%A6%E7%95%A5%2FAI%EF%BC%89%EF%BC%9A" class="btn">
+            メールで相談する（i@otsukaad.com）
+          </a>
+          <p style="font-size:0.95rem; opacity:0.85; margin-top:12px; color:var(--text-muted);">※ フォームがうまく送れない場合はこちらをご利用ください</p>
         </div>
       </div>
     </section>
@@ -944,8 +938,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 40);
     }, { passive: true });
+
+    // ✅ Formspree: fetchで送って、成功したら自サイトのサンクスへ（無料プラン対応）
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("submitBtn");
+    const errorText = document.getElementById("errorText");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      errorText.style.display = "none";
+
+      // 送信中UI
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "送信中…";
+
+      try {
+        const formData = new FormData(form);
+
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          // ✅ 成功：自サイトのサンクスへ
+          window.location.href = "/thanks.html";
+          return;
+        }
+
+        // 失敗
+        errorText.style.display = "block";
+      } catch (err) {
+        errorText.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
   </script>
 </body>
 </html>
-
-
