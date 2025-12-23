@@ -869,6 +869,10 @@
             <!-- 件名（管理者向け通知の件名に反映） -->
             <input type="hidden" name="_subject" value="【無料相談】otsukaad.com から新規問い合わせ">
 
+            <!-- ✅ 追加：トランザクションID（問い合わせごとに自動生成） -->
+<input type="hidden" id="transaction_id" name="transaction_id" value="">
+
+
             <div class="form-grid">
               <div class="form-field">
                 <label for="name">氏名（必須）</label>
@@ -1014,4 +1018,5 @@
   </script>
 </body>
 </html>
+
 
