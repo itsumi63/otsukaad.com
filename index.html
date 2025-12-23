@@ -852,108 +852,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>お問い合わせ</h2>
-          <p class="section-lead">「現状」「目的」「困っていること」を一言<br class="sp-only">で大丈夫なので送ってください。</p>
-        </div>
-
-        <div class="contact-wrap">
-          <!-- ✅ Formspree: fetch送信 + 成功したら thanks.html へ -->
-          <form id="contactForm" action="https://formspree.io/f/xqezggnj" method="POST">
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">氏名 <span class="required">必須</span></label>
-                <input id="name" name="name" type="text" required autocomplete="name" placeholder="例：大塚 123">
-              </div>
-
-              <div class="field">
-                <label for="company">会社名（任意）</label>
-                <input id="company" name="company" type="text" autocomplete="organization" placeholder="例：〇〇株式会社">
-              </div>
-
-              <div class="field" style="grid-column: 1 / -1;">
-                <label for="email">メールアドレス <span class="required">必須</span></label>
-                <input id="email" name="email" type="email" required autocomplete="email" placeholder="例：example@domain.com">
-              </div>
-
-              <div class="field" style="grid-column: 1 / -1;">
-                <label for="category">相談内容 <span class="required">必須</span></label>
-                <select id="category" name="category" required>
-                  <option value="" selected disabled>選択してください</option>
-                  <option value="広告運用">広告運用</option>
-                  <option value="GA4分析">GA4分析</option>
-                  <option value="戦略・施策設計">戦略・施策設計</option>
-                  <option value="AI活用">AI活用</option>
-                  <option value="その他">その他</option>
-                </select>
-              </div>
-
-              <div class="field" style="grid-column: 1 / -1;">
-                <label for="message">相談内容詳細 <span class="required">必須</span></label>
-                <textarea id="message" name="message" required placeholder="例：現状の広告費、目標、困っている点など。わかる範囲でOKです。"></textarea>
-              </div>
-
-              <!-- ✅ スパム対策（隠しフィールド） -->
-              <input type="text" name="_gotcha" style="display:none">
-            </div>
-
-            <div class="form-actions">
-              <button id="submitBtn" class="btn" type="submit">送信する（無料相談）</button>
-            </div>
-
-            <div id="errorText" class="error-text">送信に失敗しました。時間をおいて再度お試しください。</div>
-
-            <p class="note">※ </p>
-          </form>
-        </div>
-
-        <div class="cta-container" style="margin-top:18px;">
-          <a href="mailto:i@otsukaad.com?subject=%E3%80%90%E7%9B%B8%E8%AB%87%E3%80%91%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%9E%E3%83%BC%E3%82%B1%E6%94%AF%E6%8F%B4&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0D%0A%E7%8F%BE%E7%AA%B6%EF%BC%9A%0D%0A%E7%9B%AE%E7%9A%84%EF%BC%9A%0D%0A%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0D%0A%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E7%AF%84%E5%9B%B2%EF%BC%88%E5%BA%83%E5%91%8A%2F%E5%88%86%E6%9E%90%2F%E6%88%A6%E7%95%A5%2FAI%EF%BC%89%EF%BC%9A" class="btn">
-            メールで相談する（i@otsukaad.com）
-          </a>
-          <p style="font-size:0.95rem; opacity:0.85; margin-top:12px; color:var(--text-muted);">※ フォームがうまく送れない場合はこちらをご利用ください</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><strong>大塚ad</strong></p>
-      <p style="opacity:.9;">拠点：宮崎県（オンライン対応可）</p>
-      <p style="opacity:.9;">対象：個人事業／中小企業（小さく始めたい方もOK）</p>
-      <p style="opacity:.9;">連絡先：<a href="mailto:i@otsukaad.com">i@otsukaad.com</a></p>
-      <p style="margin-top:10px; opacity:.8;">&copy; <span id="y"></span> 大塚ad All Rights Reserved.</p>
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>お問い合わせ</h2>
+      <p class="section-lead">「現状」「目的」「困っていること」を一言<br class="sp-only">で大丈夫なので送ってください。</p>
     </div>
-  </footer>
 
-  <script>
-    // 年号
-    document.getElementById("y").textContent = new Date().getFullYear();
+    <div class="cta-container" style="max-width:720px;margin:0 auto;">
+      <p style="color:var(--text-sub); margin-bottom:14px;">ご相談・お見積もりは無料です。</p>
 
-    // ✅ ヘッダーのネオンライン（スクロールでON）
-    const header = document.querySelector("header");
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("scrolled", window.scrollY > 40);
-    }, { passive: true });
+      <!-- ✅ Formspree: JS送信フォーム -->
+      <form id="contactForm"
+            action="https://formspree.io/f/xqezggnj"
+            method="POST"
+            style="text-align:left;background:#fff;border:1px solid var(--border-light);box-shadow:var(--shadow);border-radius:12px;padding:22px;">
 
-    // ✅ Formspree: fetchで送って、成功したら自サイトのサンクスへ（無料プラン対応）
+        <label style="display:block;margin-bottom:10px;color:var(--text-sub);font-weight:600;">
+          お名前（必須）
+          <input type="text" name="name" required
+                 style="width:100%;margin-top:6px;padding:12px 12px;border-radius:10px;border:1px solid var(--border-light);">
+        </label>
+
+        <label style="display:block;margin-bottom:10px;color:var(--text-sub);font-weight:600;">
+          会社名（任意）
+          <input type="text" name="company"
+                 style="width:100%;margin-top:6px;padding:12px 12px;border-radius:10px;border:1px solid var(--border-light);">
+        </label>
+
+        <label style="display:block;margin-bottom:10px;color:var(--text-sub);font-weight:600;">
+          メールアドレス（必須）
+          <input type="email" name="email" required
+                 style="width:100%;margin-top:6px;padding:12px 12px;border-radius:10px;border:1px solid var(--border-light);">
+        </label>
+
+        <label style="display:block;margin-bottom:10px;color:var(--text-sub);font-weight:600;">
+          相談内容（必須）
+          <select name="topic" required
+                  style="width:100%;margin-top:6px;padding:12px 12px;border-radius:10px;border:1px solid var(--border-light);">
+            <option value="" selected disabled>選択してください</option>
+            <option>広告運用</option>
+            <option>数値分析（GA4）</option>
+            <option>戦略・施策設計</option>
+            <option>AI活用支援</option>
+            <option>その他</option>
+          </select>
+        </label>
+
+        <label style="display:block;margin-bottom:14px;color:var(--text-sub);font-weight:600;">
+          相談内容詳細（必須）
+          <textarea name="message" required rows="5"
+                    style="width:100%;margin-top:6px;padding:12px 12px;border-radius:10px;border:1px solid var(--border-light);resize:vertical;"></textarea>
+        </label>
+
+        <!-- ✅ 送信ステータス -->
+        <div id="formStatus" style="margin:10px 0 0; font-size:0.95rem; color:var(--text-muted);"></div>
+
+        <div style="text-align:center;margin-top:14px;">
+          <button id="submitBtn" type="submit" class="btn" style="border:none;cursor:pointer;">
+            送信する（無料相談）
+          </button>
+        </div>
+
+        <p style="font-size:0.92rem; opacity:0.85; margin-top:12px; color:var(--text-muted); text-align:center;">
+          ※ 内容確認のうえ、原則1営業日以内にご連絡します。
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
     const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
     const btn = document.getElementById("submitBtn");
-    const errorText = document.getElementById("errorText");
+
+    function setBusy(isBusy){
+      btn.disabled = isBusy;
+      btn.style.opacity = isBusy ? "0.75" : "1";
+      btn.style.cursor = isBusy ? "not-allowed" : "pointer";
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      errorText.style.display = "none";
 
-      // 送信中UI
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = "送信中…";
+      statusEl.textContent = "送信中です…";
+      setBusy(true);
 
-      try {
+      try{
         const formData = new FormData(form);
 
         const res = await fetch(form.action, {
@@ -962,22 +949,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           headers: { "Accept": "application/json" }
         });
 
-        if (res.ok) {
-          // ✅ 成功：自サイトのサンクスへ
+        if(res.ok){
+          // ✅ GTM/GA4用イベント（任意）
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "contact_submit_success",
+            form: "free_consult"
+          });
+
+          // ✅ サンクスへ
           window.location.href = "/thanks.html";
           return;
         }
 
-        // 失敗
-        errorText.style.display = "block";
-      } catch (err) {
-        errorText.style.display = "block";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
+        // エラー詳細（あれば表示）
+        let errMsg = "送信に失敗しました。時間をおいて再度お試しください。";
+        try{
+          const data = await res.json();
+          if (data && data.errors && data.errors.length) {
+            errMsg = data.errors.map(x => x.message).join(" / ");
+          }
+        }catch(_){}
+        statusEl.textContent = errMsg;
+
+      }catch(err){
+        statusEl.textContent = "通信エラーが発生しました。ネットワークをご確認ください。";
+      }finally{
+        setBusy(false);
       }
     });
-  </script>
+  })();
+</script>
+
 </body>
 </html>
+
 
