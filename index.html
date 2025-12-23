@@ -397,6 +397,9 @@
             <!-- ✅ 短い受付番号（あなたが生成して送る） -->
             <input type="hidden" name="inquiry_id" id="inquiryId" value="">
 
+            <!-- ✅ これが重要：問い合わせ者のメールを Reply-To として渡す（自動返信の宛先判定が安定する） -->
+            <input type="hidden" name="_replyto" id="replyTo" value="">
+
             <div class="form-grid">
               <div class="form-field">
                 <label for="name">氏名（必須）</label>
@@ -437,7 +440,7 @@
 
             <div class="cta-container" style="margin-top:18px;">
               <button id="submitBtn" type="submit" class="btn">送信する（無料相談）</button>
-              <p class="form-help">※</p>
+              <p class="form-help">※送信後、通常24時間以内にご連絡します（状況により前後します）。</p>
             </div>
           </form>
         </div>
@@ -471,8 +474,7 @@
       const hh = String(d.getHours()).padStart(2,"0");
       const mi = String(d.getMinutes()).padStart(2,"0");
 
-      // ランダム（英数字）4桁（紛らわしいI,O,1,0除外）
-      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // I,O,1,0除外
       let r = "";
       for(let i=0;i<4;i++){
         r += chars[Math.floor(Math.random()*chars.length)];
@@ -487,8 +489,6 @@
 
       const btn = document.getElementById("submitBtn");
       const alertBox = document.getElementById("formAlert");
-
-      // ✅ ありがとうページ（存在しないなら作る/戻す、どちらでもOK）
       const thanksUrlBase = "/thanks.html";
 
       function showError(msg){
@@ -516,6 +516,11 @@
         const hid = document.getElementById("inquiryId");
         if(hid) hid.value = inquiryId;
 
+        // ✅ これが重要：問い合わせ者のメールを _replyto に入れる（自動返信の宛先が i@otsukaad.com にならない）
+        const emailVal = (document.getElementById("email").value || "").trim();
+        const rt = document.getElementById("replyTo");
+        if(rt) rt.value = emailVal;
+
         btn.disabled = true;
         const originalText = btn.textContent;
         btn.textContent = "送信中…";
@@ -531,8 +536,6 @@
 
           if(res.ok){
             // ✅ GTM/GA4用イベント（inquiry_idを送る）
-            // GTM側で event=contact_submit_success をトリガーに、
-            // GA4イベントタグへ inquiry_id をパラメータで渡してください。
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: "contact_submit_success",
@@ -540,7 +543,6 @@
               inquiry_id: inquiryId
             });
 
-            // ✅ thanks にIDを渡す（表示したい場合）
             const thanksUrl = `${thanksUrlBase}?inquiry_id=${encodeURIComponent(inquiryId)}`;
             window.location.href = thanksUrl;
             return;
@@ -567,4 +569,3 @@
   </script>
 </body>
 </html>
-
