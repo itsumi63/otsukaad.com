@@ -214,6 +214,21 @@
       object-position:center;
       display:block;
     }
+　　/* PCだけ少し小さく（引き）する：数値を 0.92〜0.98 で調整 */
+.hero-visual .kv-video--pc{
+  transform: scale(0.94);
+  transform-origin: center center;
+}
+
+/* SPはそのまま */
+@media (max-width:768px){
+  .hero-visual .kv-video--pc{ transform:none; }
+}
+.hero-visual .kv-video--pc{
+  transform: scale(0.94);
+  transform-origin: center center;
+  object-position: 50% 55%; /* 縦方向を下に寄せたいなら 60% とか */
+}
 
     /* PC/SP切り替え */
     .hero-visual .kv-video--pc{display:block;}
@@ -254,6 +269,7 @@
     .form-alert{display:none;margin:14px 0 0;padding:12px 12px;border-radius:10px;font-size:.95rem}
     .form-alert.is-error{display:block;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.25);color:#b91c1c}
     .form-alert.is-success{display:block;background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.25);color:#047857}
+    
   </style>
 </head>
 
@@ -620,4 +636,5 @@
   </script>
 </body>
 </html>
+
 
