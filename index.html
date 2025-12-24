@@ -173,17 +173,64 @@
       .hero .light-flow{animation:none!important}
     }
 
-    /* KV画像（必要なら置換） */
+    /* =========================================
+       HERO 背景：画像 → PC/SP 動画に差し替え
+       ファイル名：
+         PC動画  kv_pc.mp4   / ポスター kv_pc.png
+         SP動画  kv_sp.mp4   / ポスター kv_sp.png
+       ルート直下に置いてある前提（今のままでOK）
+    ========================================= */
+
     .hero-visual{
-      position:absolute;inset:0;
-      background:url("kv_pc.png") no-repeat center/cover;
-      pointer-events:none;z-index:0;opacity:.95
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.95;
+      overflow:hidden;
     }
+
+    /* 画像背景（動画が非対応/減速設定の時のフォールバック） */
+    .hero-visual::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("kv_pc.png") no-repeat center/cover;
+    }
+    @media (max-width:768px){
+      .hero-visual::before{
+        background-image:url("kv_sp.png");
+        background-position:center bottom;
+      }
+    }
+
+    /* 動画共通 */
+    .hero-visual video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+
+    /* PC/SP切り替え */
+    .hero-visual .kv-video--pc{display:block;}
+    .hero-visual .kv-video--sp{display:none;}
+    @media (max-width:768px){
+      .hero-visual .kv-video--pc{display:none;}
+      .hero-visual .kv-video--sp{display:block;}
+    }
+
+    /* prefers-reduced-motion：動画OFFで画像に戻す */
+    @media (prefers-reduced-motion: reduce){
+      .hero-visual video{display:none!important;}
+    }
+
+    /* 既存の重なり順は維持 */
     .hero::before,.hero::after,.hero .light-flow{z-index:1}
     .hero .container{position:relative;z-index:2}
-    @media (max-width:768px){
-      .hero-visual{background-image:url("kv_sp.png");background-position:center bottom}
-    }
 
     /* Contact Form */
     .form-card{
@@ -234,7 +281,11 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-visual"></div>
+      <div class="hero-visual" aria-hidden="true">
+        <video class="kv-video--pc" src="kv_pc.mp4" poster="kv_pc.png" autoplay muted loop playsinline preload="metadata"></video>
+        <video class="kv-video--sp" src="kv_sp.mp4" poster="kv_sp.png" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+
       <div class="light-flow"></div>
       <div class="container">
         <h1>“数字で判断できる”<br />実務に強いマーケ伴走</h1>
